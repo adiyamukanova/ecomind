@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrustContract University Quest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <header class="w-full max-w-4xl mx-auto mb-8 text-center">
+        <img src="mnu.png" alt="Логотип МНУ" class="mx-auto mb-2 h-10 sm:h-12">
+        <h1 class="text-3xl sm:text-4xl font-game text-[#005BAA]" style="margin-top: 10px;">TrustAdmission</h1>
+        <p class="text-sm text-gray-600" style="margin-top: 10px;">Ваш путь к знаниям – увлекательное приключение!</p>
+    </header>
+
+    <main class="w-full max-w-3xl mx-auto">
+        <section id="landingPage" class="page-section card">
+            <h2 class="text-2xl font-semibold mb-4 text-center text-[#005BAA]">Добро пожаловать, Абитуриент!</h2>
+            <img src="uni.jpg" alt="Изображение приключения в университете" class="w-full h-auto rounded-lg mb-6">
+            <p class="mb-4 text-gray-700">
+                Отправьтесь в увлекательное путешествие по подаче заявления в Maqsut Narikbayev University! Наш геймифицированный процесс сделает этот важный шаг не только <strong class="text-[#00A99D]">экологичным</strong> (прощай, бумажная волокита!), но и <strong class="text-[#005BAA]">простым и прозрачным</strong>.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="p-4 bg-blue-50 rounded-lg text-center">
+                    <h3 class="font-semibold text-lg text-[#005BAA]">Быстрее</h3>
+                    <p class="text-sm text-gray-600">Онлайн подача за минуты.</p>
+                </div>
+                <div class="p-4 bg-teal-50 rounded-lg text-center">
+                    <h3 class="font-semibold text-lg text-[#00A99D]">Проще</h3>
+                    <p class="text-sm text-gray-600">Интуитивный игровой процесс.</p>
+                </div>
+                <div class="p-4 bg-green-50 rounded-lg text-center">
+                    <h3 class="font-semibold text-lg text-green-700]">Экологичнее</h3>
+                    <p class="text-sm text-gray-600">Полностью цифровой процесс.</p>
+                </div>
+            </div>
+            <p class="mb-6 text-gray-700">
+                Каждый шаг – это квест, каждое выполненное задание приближает вас к цели. Используя технологии <strong class="text-[#00A99D]">TrustContract</strong>, мы обеспечиваем безопасность и юридическую значимость ваших электронных документов.
+            </p>
+            <button onclick="navigateTo('registrationPage')" class="w-full btn-primary font-semibold py-3 px-6 rounded-lg text-lg">Начать Приключение!</button>
+        </section>
+
+        <section id="registrationPage" class="page-section card">
+            <h2 class="text-2xl font-semibold mb-6 text-center text-[#005BAA]">Создай Своего Героя!</h2>
+            
+            <div class="npc-dialog">
+                <p><strong class="text-[#00A99D]">Приемная комиссия:</strong> "Приветствую, будущий студент! Прежде чем отправиться в путь, давай создадим твой уникальный аватар и выберем твою школу в MNU."</p>
+            </div>
+
+            <div class="mb-6">
+                <label for="avatarName" class="block text-sm font-medium text-gray-700 mb-1">Имя Аватара (Логин):</label>
+                <input type="text" id="avatarName" name="avatarName" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#00A99D] focus:border-[#00A99D]">
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Пароль:</label>
+                <input type="password" id="password" name="password" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#00A99D] focus:border-[#00A99D]">
+            </div>
+
+            <div class="avatar-preview rounded-full bg-gray-200 mb-4">
+                <span id="avatarPreviewText" class="text-gray-500">Твой Аватар</span>
+                <img id="selectedAvatarImage" src="" alt="Выбранный аватар" class="hidden w-full h-full object-cover rounded-full">
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Выбери Высшую Школу (Факультет):</label>
+                <select id="schoolSelect" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#00A99D] focus:border-[#00A99D]">
+                    <option value="">-- Выбери школу --</option>
+                </select>
+            </div>
+
+            <div id="avatarCustomizationSection" class="mb-6 hidden">
+                <p class="text-sm font-medium text-gray-700 mb-2">Настрой своего аватара:</p>
+                <div id="avatarOptionsContainer" class="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                    </div>
+            </div>
+
+            <div class="mb-6">
+                <label for="specializationSelect" class="block text-sm font-medium text-gray-700 mb-1">Выбери Специальность:</label>
+                <select id="specializationSelect" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#00A99D] focus:border-[#00A99D]" disabled>
+                    <option value="">-- Сначала выбери школу --</option>
+                </select>
+                <p id="specializationRequirements" class="text-xs text-gray-500 mt-1"></p>
+                <p class="text-xs text-red-500 mt-1">Примечание: Пороговые баллы ЕНТ для гранта могут отличаться.</p>
+            </div>
+
+            <div class="flex justify-between">
+                <button onclick="navigateTo('landingPage')" class="btn-secondary font-semibold py-2 px-4 rounded-lg">Назад</button>
+                <button onclick="submitRegistration()" class="btn-primary font-semibold py-2 px-4 rounded-lg">Сохранить и начать квест!</button>
+            </div>
+        </section>
+
+        <section id="personalInfoPage" class="page-section card">
+            <h2 class="text-2xl font-semibold mb-6 text-center text-[#005BAA]">Квест: Личные Данные</h2>
+            <div class="npc-dialog">
+                <p><strong class="text-[#00A99D]">Приемная Комиссия:</strong> "Добро пожаловать, <span id="avatarNameDisplay">Абитуриент</span>! Чтобы продолжить, мне нужны некоторые твои данные."</p>
+            </div>
+
+            <div class="progress-bar-container mb-6">
+                <div id="personalInfoProgress" class="progress-bar" style="width: 10%;">10%</div>
+            </div>
+
+            <form id="personalInfoForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-gray-700">Ф.И.О.:</label>
+                        <input type="text" id="fullName" name="fullName" required class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div>
+                        <label for="birthDate" class="block text-sm font-medium text-gray-700">Дата рождения:</label>
+                        <input type="date" id="birthDate" name="birthDate" required class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div>
+                        <label for="phoneNumber" class="block text-sm font-medium text-gray-700">Контактный телефон:</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" required class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+                        <input type="email" id="email" name="email" required class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="identityDocument" class="block text-sm font-medium text-gray-700">Удостоверение личности (скан):</label>
+                    <input type="file" id="identityDocument" name="identityDocument" accept="image/*,.pdf" required class="mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#00A99D] file:text-white hover:file:bg-[#007A70]">
+                </div>
+
+                <div id="parentGuardianSection" class="hidden mt-6 p-4 border border-orange-300 bg-orange-50 rounded-md">
+                    <h3 class="text-lg font-semibold text-orange-700 mb-2">Данные Родителя/Опекуна (для несовершеннолетних)</h3>
+                    <p class="text-sm text-orange-600 mb-3">Пожалуйста, попросите родителя или опекуна заполнить эту секцию и загрузить необходимые документы.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="parentFullName" class="block text-sm font-medium text-gray-700">Ф.И.О. родителя/опекуна:</label>
+                            <input type="text" id="parentFullName" name="parentFullName" class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                        </div>
+                        <div>
+                            <label for="parentPhoneNumber" class="block text-sm font-medium text-gray-700">Телефон родителя/опекуна:</label>
+                            <input type="tel" id="parentPhoneNumber" name="parentPhoneNumber" class="mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="birthCertificate" class="block text-sm font-medium text-gray-700">Свидетельство о рождении (скан):</label>
+                        <input type="file" id="birthCertificate" name="birthCertificate" accept="image/*,.pdf" class="mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-500 file:text-white hover:file:bg-orange-600">
+                    </div>
+                    <div class="mb-4">
+                        <label for="parentIdentityDocument" class="block text-sm font-medium text-gray-700">Удостоверение личности родителя/опекуна (скан):</label>
+                        <input type="file" id="parentIdentityDocument" name="parentIdentityDocument" accept="image/*,.pdf" class="mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-orange-500 file:text-white hover:file:bg-orange-600">
+                    </div>
+                     <p class="text-xs text-orange-500 mt-1">Для продолжения потребуется согласие родителя/опекуна через TrustContract (симуляция).</p>
+                </div>
+
+                <div class="flex justify-between mt-8">
+                    <button type="button" onclick="navigateTo('registrationPage')" class="btn-secondary font-semibold py-2 px-4 rounded-lg">Назад к Аватару</button>
+                    <button type="button" onclick="submitPersonalInfo()" class="btn-primary font-semibold py-2 px-4 rounded-lg">Отправить Данные NPC</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="documentsPage" class="page-section card">
+            <h2 class="text-2xl font-semibold mb-6 text-center text-[#005BAA]">Квест: Сбор Артефактов (Документов)</h2>
+            <div class="npc-dialog">
+                <p><strong class="text-[#00A99D]">Виртуальный Консультант:</strong> "Время собрать могущественные артефакты – твои документы! Каждый из них важен для твоего пути."</p>
+            </div>
+
+            <div class="progress-bar-container mb-6">
+                <div id="documentsProgress" class="progress-bar" style="width: 30%;">30%</div>
+            </div>
+            
+            <form id="documentsForm">
+                <div class="space-y-6">
+                    <div class="p-4 border rounded-md bg-gray-50">
+                        <label for="schoolCertificate" class="block text-sm font-medium text-gray-700">1. Аттестат (скан):</label>
+                        <input type="file" id="schoolCertificate" name="schoolCertificate" accept="image/*,.pdf" required class="document-input mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#00A99D] file:text-white hover:file:bg-[#007A70]">
+                        <p class="text-xs text-gray-500 mt-1">Оригинал нужно будет предоставить позже.</p>
+                    </div>
+
+                    <div class="p-4 border rounded-md bg-gray-50">
+                        <label for="entNumber" class="block text-sm font-medium text-gray-700">2. Результаты ЕНТ (ИКТ):</label>
+                        <div class="flex items-center space-x-2 mt-1">
+                            <input type="text" id="entNumber" name="entNumber" placeholder="Твой специальный номер ЕНТ" class="document-input w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                            <button type="button" onclick="verifyENT()" class="btn-secondary py-2 px-3 rounded-md text-sm">Проверить ИИ</button>
+                        </div>
+                        <p id="entVerificationResult" class="text-xs mt-1"></p>
+                    </div>
+
+                    <div class="p-4 border rounded-md bg-gray-50">
+                        <label for="ieltsCertificate" class="block text-sm font-medium text-gray-700">3. Сертификат IELTS/TOEFL (скан и номер):</label>
+                        <select id="languageCertType" class="document-input mt-1 w-full p-2 border border-gray-300 rounded-md shadow-sm mb-2">
+                            <option value="ielts">IELTS</option>
+                            <option value="toefl">TOEFL IBT</option>
+                            <option value="cae">CAE</option>
+                        </select>
+                        <input type="text" id="ieltsNumber" name="ieltsNumber" placeholder="Номер сертификата" class="document-input w-full p-2 border border-gray-300 rounded-md shadow-sm mb-2">
+                        <input type="file" id="ieltsCertificateFile" name="ieltsCertificateFile" accept="image/*,.pdf" class="document-input w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#00A99D] file:text-white hover:file:bg-[#007A70] mb-1">
+                        <button type="button" onclick="verifyIELTS()" class="btn-secondary py-2 px-3 rounded-md text-sm">Проверить ИИ</button>
+                        <p id="ieltsVerificationResult" class="text-xs mt-1"></p>
+                        <p id="ieltsSchoolRequirement" class="text-xs text-gray-500 mt-1"></p>
+                    </div>
+                    
+                    <div class="p-4 border rounded-md bg-gray-50">
+                        <label for="photo3x4" class="block text-sm font-medium text-gray-700">4. Фотография 3x4 (файл):</label>
+                        <input type="file" id="photo3x4" name="photo3x4" accept="image/*" required class="document-input mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#00A99D] file:text-white hover:file:bg-[#007A70]">
+                    </div>
+
+                    <div class="p-4 border rounded-md bg-gray-50">
+                        <label for="medicalDocuments" class="block text-sm font-medium text-gray-700">5. Медицинские документы (075/у и др., скан):</label>
+                        <input type="file" id="medicalDocuments" name="medicalDocuments" accept="image/*,.pdf" multiple class="document-input mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#00A99D] file:text-white hover:file:bg-[#007A70]">
+                    </div>
+
+                    <div class="p-4 border rounded-md bg-gray-50">
+                        <label for="motivationLetter" class="block text-sm font-medium text-gray-700">6. Мотивационное письмо (DOCX, PDF):</label>
+                        <input type="file" id="motivationLetter" name="motivationLetter" accept=".docx,.pdf" class="document-input mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#00A99D] file:text-white hover:file:bg-[#007A70] mb-1">
+                        <button type="button" onclick="verifyMotivationLetter()" class="btn-secondary py-2 px-3 rounded-md text-sm">Проверить ИИ</button>
+                        <ul id="motivationLetterResult" class="text-xs mt-1 list-disc list-inside"></ul>
+                        <p class="text-xs text-gray-500 mt-1">Требования: Times New Roman, 12 кегль, 1.5 интервал, мин. 500 слов, структура (введение, осн. часть, заключение).</p>
+                    </div>
+                    
+                    <div class="p-4 border rounded-md bg-gray-50">
+                        <label for="recommendationLetter" class="block text-sm font-medium text-gray-700">7. Рекомендательное письмо (1 шт., скан):</label>
+                        <input type="file" id="recommendationLetter" name="recommendationLetter" accept="image/*,.pdf" class="document-input mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#00A99D] file:text-white hover:file:bg-[#007A70]">
+                    </div>
+
+                    <div class="p-4 border rounded-md bg-gray-50">
+                        <label for="grantCertificate" class="block text-sm font-medium text-gray-700">8. Сертификат о гранте (если есть, опционально):</label>
+                        <input type="file" id="grantCertificate" name="grantCertificate" accept="image/*,.pdf" class="document-input mt-1 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#00A99D] file:text-white hover:file:bg-[#007A70]">
+                        <p class="text-xs text-gray-500 mt-1">Можно загрузить позже, если грант выдается в августе.</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-between mt-8">
+                    <button type="button" onclick="navigateTo('personalInfoPage')" class="btn-secondary font-semibold py-2 px-4 rounded-lg">Назад к Личным Данным</button>
+                    <button type="button" onclick="submitDocuments()" class="btn-primary font-semibold py-2 px-4 rounded-lg">Все артефакты собраны!</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="finalSubmissionPage" class="page-section card">
+            <h2 class="text-2xl font-semibold mb-6 text-center text-[#005BAA]">Финальный Босс: Отправка Заявки</h2>
+            <div class="npc-dialog">
+                <p><strong class="text-[#00A99D]">Виртуальный Консультант:</strong> "Ты почти у цели, <span id="avatarNameDisplayFinal">Абитуриент</span>! Перед тобой последний пункт. Проверь все свои данные и артефакты. Если все верно, подпиши Великий Свиток Заявления с помощью магии TrustContract!"</p>
+            </div>
+
+            <div class="progress-bar-container mb-6">
+                <div id="finalProgress" class="progress-bar" style="width: 90%;">90%</div>
+            </div>
+
+            <div id="applicationSummary" class="mb-6 p-4 border rounded-md bg-gray-50 space-y-2">
+                <h3 class="text-lg font-semibold text-gray-800">Сводка твоей заявки:</h3>
+                <p><strong>Аватар:</strong> <span id="summaryAvatarName"></span></p>
+                <p><strong>Школа:</strong> <span id="summarySchool"></span></p>
+                <p><strong>Специальность:</strong> <span id="summarySpecialization"></span></p>
+                <p><strong>Ф.И.О.:</strong> <span id="summaryFullName"></span></p>
+                <p><strong>Email:</strong> <span id="summaryEmail"></span></p>
+                <p><strong>Документы:</strong> <span id="summaryDocumentsCount">0</span> загружено (проверь список в предыдущем квесте).</p>
+                </div>
+            
+            <div class="mb-6 p-4 border-2 border-[#00A99D] rounded-lg bg-teal-50 text-center">
+                <img src="trm.png" alt="Логотип TrustContract" class="mx-auto mb-2 h-10">
+                <p class="text-sm text-gray-700">Для подтверждения твоей заявки и всех предоставленных документов необходимо подписать цифровое заявление с помощью <strong>TrustContract</strong>. Это гарантирует юридическую значимость и безопасность твоих данных.</p>
+            </div>
+
+            <button onclick="initiateTrustContractSignature()" class="w-full btn-primary font-bold py-3 px-6 rounded-lg text-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                Подписать и Отправить Заявку через TrustContract
+            </button>
+            <button onclick="navigateTo('documentsPage')" class="w-full btn-secondary font-semibold py-2 px-4 rounded-lg mt-3">Вернуться и Редактировать</button>
+        </section>
+
+        <section id="dashboardPage" class="page-section card">
+            <h2 class="text-2xl font-semibold mb-6 text-center text-[#005BAA]">Твой Штаб, <span id="dashboardAvatarName">Абитуриент</span>!</h2>
+            <div class="npc-dialog">
+                <p><strong class="text-[#00A99D]">Виртуальный Консультант:</strong> "Поздравляю с завершением квеста! Твоя заявка отправлена. Здесь ты можешь отслеживать ее статус."</p>
+            </div>
+            
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-md mb-6" role="alert">
+                <p class="font-bold">Заявка успешно отправлена!</p>
+                <p>Она находится на рассмотрении у Консультантов MNU. Ожидай уведомлений!</p>
+            </div>
+
+            <div class="p-4 border rounded-md bg-gray-50">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Статус Заявки:</h3>
+                <p id="applicationStatus" class="text-xl font-bold text-[#005BAA]">На Рассмотрении</p>
+                <p class="text-sm text-gray-600 mt-1">Последнее обновление: <span id="statusUpdateDate"></span></p>
+            </div>
+
+            <div class="mt-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Твои Данные:</h3>
+                <ul class="list-disc list-inside text-gray-700 bg-gray-50 p-3 rounded-md">
+                    <li><strong>Школа:</strong> <span id="dashboardSchool"></span></li>
+                    <li><strong>Специальность:</strong> <span id="dashboardSpecialization"></span></li>
+                    <li><strong>Загружено документов:</strong> <span id="dashboardDocumentsCount"></span></li>
+                </ul>
+            </div>
+
+            <button onclick="navigateTo('landingPage')" class="w-full btn-primary font-semibold py-3 px-6 rounded-lg mt-8">Вернуться на Главную</button>
+        </section>
+    </main>
+
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle" class="text-xl font-semibold mb-3">Сообщение</h3>
+            <p id="modalMessage" class="text-gray-700"></p>
+            <button id="modalOkButton" onclick="closeModal()" class="mt-4 btn-primary py-2 px-4 rounded-lg float-right">OK</button>
+        </div>
+    </div>
+
+
+    <footer class="w-full max-w-4xl mx-auto mt-12 text-center text-xs text-gray-500">
+        <p>&copy; 2025 Maqsut Narikbayev University & TrustMe. EcoMIND Hackathon Project.</p>
+        <p>Все права защищены (симуляция).</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
